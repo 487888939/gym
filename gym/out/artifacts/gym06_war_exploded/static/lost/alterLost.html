@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改失物登记信息</title>
+    <base href="http://localhost:8080/gym06/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <form action="doUpdLost" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width:800px; height: 100px">
+            <tr>
+                <th colspan="3">修改失物登记信息</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr >
+                <th>编号</th>
+                <td th:text="${session.lost.id}"></td>
+                <td th:text="${session.lost.id}"></td>
+            </tr>
+            <tr>
+                <th>(捡/丢)姓名</th>
+                <td th:text="${session.lost.l_name}"></td>
+                <td><input type="text" class="edit_input" name="l_name" th:value="${session.lost.l_name}"></td>
+            </tr>
+            <tr >
+                <th>失主电话</th>
+                <td th:text="${session.lost.phone}"></td>
+                <td><input type="text" class="edit_input"name="phone" th:value="*{session.lost.phone}"></td>
+            </tr>
+            <tr>
+                <th>物品描述</th>
+                <td th:text="${session.lost.l_describe}"></td>
+                <td><input type="text" class="edit_input" name="l_describe" th:value="*{session.lost.l_describe}"></td>
+            </tr>
+            <tr>
+                <th>失物类型</th>
+                <td th:text="${session.lost.l_type}"></td>
+                <td><input type="text" class="edit_input" name="l_type" th:value="*{session.lost.l_type}"></td>
+            </tr>
+            <tr>
+                <th>捡到日期</th>
+                <td th:text="${session.lost.pick_date}"></td>
+                <td><input type="text" class="edit_input" name="pick_date" th:value="*{session.lost.pick_date}"></td>
+            </tr>
+            <tr>
+                <th>领取日期</th>
+                <td th:text="${session.lost.get_date}"></td>
+                <td><input type="text" class="edit_input" name="get_date" th:value="*{session.lost.get_date}"></td>
+            </tr>
+            <tr>
+                <th>领取状态</th>
+                <td th:text="${session.lost.state}"></td>
+                <td><input type="text" class="edit_input" name="state" th:value="*{session.lost.state}"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="lost_id" th:value="${session.lost.id}">
+            <input type="hidden" name="doUpdType" th:value="alter">
+            <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="lostList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

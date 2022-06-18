@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>在售商品列表</title>
+<base href="http://localhost:8080/gym07/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/equipment.js"></script>
+</head>
+<body>
+    <div >
+        <div class="search-query">
+            <form th:action="@{goodsList}" method="post">
+                <input type="hidden" name="oper1" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword1" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="7">
+                    <span>
+                        在售商品列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>商品品牌</th>
+
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.goodsList)}" th:height="60px">
+                <td colspan="7" style="text-align: center">商品不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.goodsList)}" th:each="goodsList:${session.goodsList}" th:height="60px">
+                <td th:text="${goodsList.id}"></td>
+                <td th:text="${goodsList.g_name}"></td>
+                <td th:text="${goodsList.g_price}"></td>
+                <td th:text="${goodsList.g_account}"></td>
+                <td th:text="${goodsList.g_brand}"></td>
+                <td><img src="Img/delete1.png"  th:onclick="|del_goods(${goodsList.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png"  th:onclick="|alter_goods(${goodsList.id})|"/></td>
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="goodsPage(1)" th:disabled="${session.pagenogoods==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|goodsPage(${session.pagenogoods+1})|" th:disabled="${session.pagenogoods==session.goodsCount}"/>
+            <input type="button" value="上一页" class="btn" th:onclick="|goodsPage(${session.pagenogoods-1})|" th:disabled="${session.pagenogoods==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|goodsPage(${session.goodsCount})|" th:disabled="${session.pagenogoods==session.goodsCount}"/>
+            <button id="add_user"><a href="static/goods/addGoods.html" id="addVipUser_btn">添加器材</a></button>
+        </div>
+    </div>
+</body>
+</html>

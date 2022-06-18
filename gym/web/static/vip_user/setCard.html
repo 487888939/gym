@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title> 会员卡参数列表</title>
+<base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/vipList.js"></script>
+</head>
+<body>
+    <div >
+        <dr/>
+        &nbsp&nbsp
+        <button id="add_cardType"><a href="static/vip_user/addCard_type.html" id="addVipUser_btn">添加会员卡类型</a></button>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px" th:align="center">
+            <tr>
+                <th colspan="6">
+                    <span>
+                        会员卡参数列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>卡编号</th>
+            <th>卡类型</th>
+            <th>卡价格</th>
+            <th>有效天数</th>
+            <th>折扣</th>
+            <th>操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.card_typeList)}" th:height="50px">
+                <td colspan="6" style="text-align: center">会员卡的参数类型为空</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.card_typeList)}" th:each="card_type:${session.card_typeList}" th:height="40px">
+                <td th:text="${card_type.getCard_id()}"></td>
+                <td th:text="${card_type.getCard_name()}"></td>
+                <td th:text="${card_type.getCard_price()}"></td>
+                <td th:text="${card_type.getIndate()}"></td>
+                <td th:text="${card_type.getDiscount()}"></td>
+                <td align="center"><img src="Img/set.png"  th:onclick="|doSetCard(${card_type.getCard_id()})|"/></td><!--|的作用是拼接字符串 -->
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

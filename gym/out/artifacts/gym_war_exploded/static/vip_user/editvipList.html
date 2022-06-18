@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改会员信息</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <form action="editvipList" method="post">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center">
+            <tr>
+                <th colspan="3">修改会员信息</th>
+            </tr>
+            <tr th:height="50px">
+                <th>字段信息</th>
+                <th>初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr>
+                <th th:height="50px">序列号</th>
+                <td th:text="${session.vipUserById.id}"></td>
+                <td th:text="${session.vipUserById.id}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>会员名</th>
+                <td th:text="${session.vipUserById.username}"></td>
+                <td><input type="text" class="edit_input" name="username" th:value="${session.vipUserById.username}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>密码</th>
+                <td th:text="${session.vipUserById.password}"></td>
+                <td><input type="text" class="edit_input"name="password" th:value="*{session.vipUserById.password}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>邮箱</th>
+                <td th:text="*{session.vipUserById.email}"></td>
+                <td><input type="text" class="edit_input" name="email" th:value="*{session.vipUserById.email}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>注册日期</th>
+                <td th:text="*{session.vipUserById.reg_date}"></td>
+                <td><input type="text" class="edit_input" name="reg_date" th:value="*{session.vipUserById.reg_date}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>办卡类型</th>
+                <td th:text="*{session.vipUserById.vip_type}"></td>
+                <td><input type="text" class="edit_input" name="vip_type" th:value="*{session.vipUserById.vip_type}"></td>
+            <tr th:height="50px">
+                <th>登录权限</th>
+                <td th:text="*{session.vipUserById.login_limit}"></td>
+                <td><input type="text" class="edit_input" name="login_limit" th:value="*{session.vipUserById.login_limit}"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="id" th:value="${session.vipUserById.id}">
+            <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="vipList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

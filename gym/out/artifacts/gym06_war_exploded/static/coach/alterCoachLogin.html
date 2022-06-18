@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改教练登录信息</title>
+    <base href="http://localhost:8080/gym06/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <form action="doAlterCoaLogin" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width:800px; height: 100px">
+            <tr>
+                <th colspan="3">修改教练登录信息</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr >
+                <th>编号</th>
+                <td th:text="${session.coachLoginByID.id}"></td>
+                <td th:text="${session.coachLoginByID.id}"></td>
+            </tr>
+            <tr>
+                <th>登录名称</th>
+                <td th:text="${session.coachLoginByID.coa_name}"></td>
+                <td><input type="text" class="edit_input" name="coa_name" th:value="${session.coachLoginByID.coa_name}"></td>
+            </tr>
+            <tr >
+                <th>密码</th>
+                <td th:text="${session.coachLoginByID.password}"></td>
+                <td><input type="text" class="edit_input"name="password" th:value="*{session.coachLoginByID.password}"></td>
+            </tr>
+            <tr>
+                <th>状态</th>
+                <td th:text="${session.coachLoginByID.state}"></td>
+                <td><input type="text" class="edit_input" name="state" th:value="*{session.coachLoginByID.state}"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="login_id" th:value="${session.coachLoginByID.id}">
+            <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="getCoachLogin" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+
+
+    </div>
+</body>
+</html>

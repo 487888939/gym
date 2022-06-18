@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>教练登录信息</title>
+<base href="http://localhost:8080/gym07/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/coach.js"></script>
+</head>
+<body>
+    <div >
+        <dr/>
+        <p>&nbsp&nbsp&nbsp<button style="background-color:transparent"><a href="static/coach/addCoachLogin.html" style="text-decoration:none;
+    color:#333;">添加教练登录账号</a></button></p>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="6">
+                    <span>
+                        教练登录信息列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>编号</th>
+            <th>登录名称</th>
+            <th>密码</th>
+            <th>状态</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.coach_login)}" th:height="50px">
+                <td colspan="6" style="text-align: center">教练登录信息不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.coach_login)}" th:each="coach_login:${session.coach_login}" th:height="50px">
+                <td th:text="${coach_login.id}"></td>
+                <td th:text="${coach_login.coa_name}"></td>
+                <td th:text="${coach_login.password}"></td>
+                <td th:text="${coach_login.state}"></td>
+                <td><img src="Img/delete1.png"  th:onclick="|del_coachLogin(${coach_login.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png"  th:onclick="|alter_coachLogin(${coach_login.id})|"/></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

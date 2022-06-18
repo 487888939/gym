@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>健身房管理系统登录界面</title>
+	<base href="http://localhost:8080/gym06/">
+	<script type="text/javascript" src="js/jquery_1.7/jquery-1.7.2.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/login.css" >
+	<script type="text/javascript" src="js/login.js"></script>
+</head>
+<body>
+					<div class="login_form">
+
+						<div class="login_box">
+							<div id="form">
+								<div class="tit">
+									<h2>健身房用户登录</h2><br/>
+								</div>
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								<span th:text="${session.prompt1}" style="color: crimson"></span>
+								<br />
+								<form action="loginGym" method="post" onsubmit="return (f1(this),f2(this))">
+									<label>用户名称：</label>
+									<input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1" name="username" />
+									<span id="test_username" style="color: crimson"></span>
+									<br />
+									<br />
+									<br />
+									<label>用户密码：</label>
+									<input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1" name="password" />
+									<span id="test_password" style="color: crimson"></span>
+									<br />
+									<br />
+									<br />
+									<input type="submit" value="登录" id="submit1" width="100px" onclick="f1(),f2()"/>
+									<br />
+									<br />
+									<p>
+										请选择登录身份:
+										<select id="select" name="login_type">
+											<option>会员</option>
+											<option >教练</option>
+											<option>管理员</option>
+										</select>
+									</p>
+								</form>
+									<br />
+								<button id="reg_c"><a href="static/regist.html" id="regist_btn" style="color:#333; text-decoration:none;">会员注册</a></button>
+							</div>
+						</div>
+					</div>
+		<div id="bottom">
+			<span>
+				zhouhu .Copyright &copy;2022
+			</span>
+		</div>
+</body>
+</html>

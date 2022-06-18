@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>充值卡用户查询</title>
+    <base href="http://localhost:8080/gym06/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+<div>
+    &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+    &nbsp &nbsp&nbsp &nbsp &nbsp
+    <button style="background-color: transparent;">
+        <a href="static/addVipUser.html" style=" font-size:15px;text-decoration:none;color:#333;">会员注册</a>
+    </button>
+    <form action="applyCard" method="Get">
+    <table style="align-content:center;width:800px;"border="1px"cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <th>
+                会员卡办理
+            </th>
+        </tr>
+        <tr >
+            <td height="450px">
+                <p align="center">
+                    <input type="hidden" value="B" name="estimate">
+                    <input type="text" placeholder="请输入用户名" name="username" id="keyword">&nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit">
+
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+                &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+                &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+                &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp
+                <span style="color: crimson ;font-weight: bold;font-size: 20px" th:text="${session.prompt}"></span>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑会员卡信息</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <form action="doEditSetCard" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width:800px; height: 100px">
+            <tr>
+                <th colspan="3">修改会员卡信息</th>
+            </tr>
+            <tr th:height="50px">
+                <th>字段信息</th>
+                <th>初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr th:height="50px">
+                <th>卡编号</th>
+                <td th:text="${session.card_type.card_id}"></td>
+                <td th:text="${session.card_type.card_id}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>卡类型</th>
+                <td th:text="${session.card_type.card_name}"></td>
+                <td><input type="text" class="edit_input" name="card_name" th:value="${session.card_type.card_name}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>卡价格</th>
+                <td th:text="${session.card_type.card_price}"></td>
+                <td><input type="text" class="edit_input"name="card_price" th:value="*{session.card_type.card_price}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>有效天数</th>
+                <td th:text="${session.card_type.indate}"></td>
+                <td><input type="text" class="edit_input" name="indate" th:value="*{session.card_type.indate}"></td>
+            </tr>
+            <tr th:height="50px">
+                <th>折扣</th>
+                <td th:text="${session.card_type.discount}"></td>
+                <td><input type="text" class="edit_input" name="discount" th:value="*{session.card_type.discount}"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="card_id" th:value="${session.card_type.card_id}">
+            <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="setCard" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

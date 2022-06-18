@@ -1,0 +1,28 @@
+.search-query{
+    width:280px;
+    float: right;
+}
+#submit{
+    width: 32px;
+    height:32px;
+    border:0;
+    background-image: url("../Img/search.png");
+    background-color: transparent;
+    position:absolute;
+    outline: none;
+}
+#keyword{
+    border-radius: 35px;height:30px;width: 200px;background-color: transparent;
+}
+#add_user{
+    background-color:transparent;
+    float: right;
+
+}
+#addVipUser_btn{
+    text-decoration:none;
+    color:#333;
+}
+#add_cardType{
+    background-color:transparent;
+}

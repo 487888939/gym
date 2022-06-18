@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改健身器材信息</title>
+    <base href="http://localhost:8080/gym07/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <form action="doUpdEqut" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width:800px; height: 100px">
+            <tr>
+                <th colspan="3">修改健身器材信息</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr >
+                <th>器材编号</th>
+                <td th:text="${session.equipment.id}"></td>
+                <td th:text="${session.equipment.id}"></td>
+            </tr>
+            <tr>
+                <th>器材名称</th>
+                <td th:text="${session.equipment.equ_name}"></td>
+                <td><input type="text" class="edit_input" name="equ_name" th:value="${session.equipment.equ_name}"></td>
+            </tr>
+            <tr >
+                <th>器材数量</th>
+                <td th:text="${session.equipment.account}"></td>
+                <td><input type="text" class="edit_input"name="account" th:value="*{session.equipment.account}"></td>
+            </tr>
+            <tr>
+                <th>购入价格</th>
+                <td th:text="${session.equipment.purchase}"></td>
+                <td><input type="text" class="edit_input" name="purchase" th:value="*{session.equipment.purchase}"></td>
+            </tr>
+            <tr>
+                <th>进货厂家</th>
+                <td th:text="${session.equipment.merchant}"></td>
+                <td><input type="text" class="edit_input" name="merchant" th:value="*{session.equipment.merchant}"></td>
+            </tr>
+            <tr>
+                <th>购入时间</th>
+                <td th:text="${session.equipment.buy_time}"></td>
+                <td><input type="text" class="edit_input" name="buy_time" th:value="*{session.equipment.buy_time}"></td>
+            </tr>
+            <tr >
+                <th>器材状态</th>
+                <td th:text="${session.equipment.equ_state}"></td>
+                <td><input type="text" class="edit_input" name="equ_state" th:value="*{session.equipment.equ_state}"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="eupt_id" th:value="${session.equipment.id}">
+            <input type="hidden" name="doUpdType" th:value="alter">
+            <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="equtList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

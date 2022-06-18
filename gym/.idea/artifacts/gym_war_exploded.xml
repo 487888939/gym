@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="gym:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/gym_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="gym" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="commons-dbutils-1.3" module-name="gym" />
+          <element id="library" level="module" name="attoparser-2.0.5.RELEASE" module-name="gym" />
+          <element id="library" level="module" name="JUnit4" module-name="gym" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="gym/web/Web" />
+    </root>
+  </artifact>
+</component>

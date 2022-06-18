@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>会员卡期限充值</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+    <script type="text/javascript" src="js/jquery_1.7/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/addOvertime.js"></script>
+
+</head>
+<body>
+    <div>
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" th:width="800px" >
+            <tr th:height="20px">
+                <th colspan="3">会员卡充值</th>
+            </tr>
+            <tr th:height="20px">
+                <th>字段信息</th>
+                <th>初始信息</th>
+            </tr>
+            <tr th:height="20px">
+                <th>卡号</th>
+                <td th:text="${session.cardholder.card_id}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>会员名</th>
+                <td th:text="${session.cardholder.card_user}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>性别</th>
+                <td th:text="${session.cardholder.sex}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>年龄</th>
+                <td th:text="${session.cardholder.age}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>电话</th>
+                <td th:text="${session.cardholder.phone}"></td>
+            <tr th:height="20px">
+                <th>生日</th>
+                <td th:text="${session.cardholder.birthday}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>卡上余额</th>
+                <td id="balance" th:text="*{session.cardholder.balance}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>办卡日期</th>
+                <td th:text="${session.cardholder.card_date}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>剩余天数</th>
+                <td th:text="${session.cardholder.expire_date}"></td>
+            </tr>
+            <tr th:height="20px">
+                <th>状态</th>
+                <td th:text="${session.cardholder.card_state}"></td>
+            </tr>
+        </table>
+
+
+        <form th:action="@{addCardOvertime}" method="Get">
+            <p align="center">
+            <span style="background-color: transparent; font-size:20px;font-weight: bold;">请选择期限额度:</span>
+                <select name="addOvertime" id="C_typeSelect" style="background-color: transparent; font-size:15px; width:150px">
+                    <option>年卡</option>
+                    <option>季卡</option>
+                    <option>月卡</option>
+                    <option>周卡</option>
+                    <option>日卡</option>
+                </select>
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <input type="submit" value="充值" style="background-color: transparent; font-size:15px">
+            <button style="background-color: transparent;">
+                <a href="cardholderList" style=" font-size:15px;text-decoration:none;color:#333;">取消</a>
+            </button>
+            </p>
+            <input type="hidden" name="card_id" th:value="${session.cardholder.card_id}">
+        </form>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <span style="color: crimson ;font-weight: bold;font-size: 20px" th:text="${session.prompt}"></span>
+    </div>
+</body>
+</html>

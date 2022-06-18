@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>办卡会员列表</title>
+<base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/vipList.js"></script>
+</head>
+<body>
+    <div >
+        <div class="search-query">
+            <form th:action="@{cardholderList}" method="post">
+                <input type="hidden" name="oper1" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword1" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="12">
+                    <span>
+                        办卡会员列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>卡号</th>
+            <th>会员名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>电话</th>
+            <th>生日</th>
+            <th>卡上余额</th>
+            <th>办卡日期</th>
+            <th>剩余天数</th>
+            <th>状态</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.cardholderList)}" th:height="20px">
+                <td colspan="12" style="text-align: center">用户不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.cardholderList)}" th:each="cardholder:${session.cardholderList}" th:height="20px">
+                <td th:text="${cardholder.card_id}"></td>
+                <td th:text="${cardholder.card_user}"></td>
+                <td th:text="${cardholder.sex}"></td>
+                <td th:text="${cardholder.age}"></td>
+                <td th:text="${cardholder.phone}"></td>
+                <td th:text="${cardholder.birthday}"></td>
+                <td th:text="${cardholder.balance}"></td>
+                <td th:text="${cardholder.card_date}"></td>
+                <td th:text="${cardholder.expire_date}"></td>
+                <td th:text="${cardholder.card_state}"></td>
+                <td><img src="Img/recharge_card.png"  th:onclick="|recharge_card(${cardholder.card_id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/overtime_card.png"  th:onclick="|overtime_card(${cardholder.card_id})|"/></td>
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="cardPage(1)" th:disabled="${session.pagenocard==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|cardPage(${session.pagenocard+1})|" th:disabled="${session.pagenocard==session.cardcountPag}"/>
+            <input type="button" value="上一页" class="btn" th:onclick="|cardPage(${session.pagenocard-1})|" th:disabled="${session.pagenocard==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|cardPage(${session.cardcountPag})|" th:disabled="${session.pagenocard==session.cardcountPag}"/>
+            <button id="add_user"><a href="expireCard" id="addVipUser_btn">查看过期会员</a></button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登记失物信息</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <p>&nbsp</p>
+        <form action="doUpdLost" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width: 800px;">
+            <tr >
+                <th colspan="2">登记失物信息</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>编辑信息</th>
+            </tr>
+            <tr>
+                <th>(捡/丢)姓名</th>
+                <td><input type="text" class="edit_input" name="l_name" value="健身房"></td>
+            </tr>
+            <tr>
+                <th>失主电话</th>
+                <td><input type="text" class="edit_input" name="phone" value=""></td>
+            </tr>
+            <tr >
+                <th>物品描述</th>
+                <td><input type="text" class="edit_input" name="l_describe" value=""></td>
+            </tr>
+            <tr >
+                <th>失物类型</th>
+                <td><input type="text" class="edit_input" name="l_type" value=""></td>
+            </tr>
+            <tr >
+                <th>捡到日期</th>
+                <td><input type="text" class="edit_input" name="pick_date" value=""></td>
+            </tr>
+            <tr >
+                <th>领取日期</th>
+                <td><input type="text" class="edit_input" name="get_date" value=""></td>
+            </tr>
+            <tr >
+                <th>领取状态</th>
+                <td><input type="text" class="edit_input" name="state" value="未领取"></td>
+            </tr>
+        </table>
+            <input type="hidden" name="doUpdType" value="add">
+            <p align="center"><input type="submit" value="添加" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="lostList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>教练列表</title>
+<base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/coach.js"></script>
+</head>
+<body>
+    <div >
+        <div class="search-query">
+            <form th:action="@{coachList}" method="post">
+                <input type="hidden" name="oper1" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword1" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="12">
+                    <span>
+                        教练列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>电话</th>
+            <th>地址</th>
+            <th>入职日期</th>
+            <th>在职状态</th>
+            <th>教龄</th>
+            <th>薪资</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.coachList)}" th:height="50px">
+                <td colspan="12" style="text-align: center">教练不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.coachList)}" th:each="coachList:${session.coachList}" th:height="40px">
+                <td th:text="${coachList.id}"></td>
+                <td th:text="${coachList.coach_name}"></td>
+                <td th:text="${coachList.coach_sex}"></td>
+                <td th:text="${coachList.coach_age}"></td>
+                <td th:text="${coachList.coach_phone}"></td>
+                <td th:text="${coachList.pre_address}"></td>
+                <td th:text="${coachList.hire_date}"></td>
+                <td th:text="${coachList.coach_state}"></td>
+                <td th:text="${coachList.teaching_age}"></td>
+                <td th:text="${coachList.salary}"></td>
+                <td><img src="Img/delete1.png"  th:onclick="|del_coach(${coachList.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png"  th:onclick="|alter_coach(${coachList.id})|"/></td>
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="coachPage(1)" th:disabled="${session.pagenocoach==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|coachPage(${session.pagenocoach+1})|" th:disabled="${session.pagenocoach==session.coachCountPag}"/>
+            <input type="button" value="上一页" class="btn" th:onclick="|coachPage(${session.pagenocoach-1})|" th:disabled="${session.pagenocoach==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|coachPage(${session.coachCountPag})|" th:disabled="${session.pagenocoach==session.coachCountPag}"/>
+            <button id="add_user"><a href="static/coach/addCoach.html" id="addVipUser_btn">添加教练</a></button>
+        </div>
+    </div>
+</body>
+</html>

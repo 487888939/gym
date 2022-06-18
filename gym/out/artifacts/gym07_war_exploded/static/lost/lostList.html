@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>失物招领信息列表</title>
+<base href="http://localhost:8080/gym07/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/equipment.js"></script>
+</head>
+<body>
+    <div >
+        <div class="search-query">
+            <form th:action="@{lostList}" method="post">
+                <input type="hidden" name="oper1" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword1" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="10">
+                    <span>
+                        失物招领信息列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>编号</th>
+            <th>(捡/丢)姓名</th>
+            <th>失主电话</th>
+            <th>物品描述</th>
+            <th>失物类型</th>
+            <th>捡到日期</th>
+            <th>领取日期</th>
+            <th>领取状态</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.lostList)}">
+                <td colspan="10" style="text-align: center">失物信息不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.lostList)}" th:each="lostList:${session.lostList}">
+                <td th:text="${lostList.id}"></td>
+                <td th:text="${lostList.l_name}"></td>
+                <td th:text="${lostList.phone}"></td>
+                <td th:text="${lostList.l_describe}"></td>
+                <td th:text="${lostList.l_type}"></td>
+                <td th:text="${lostList.pick_date}"></td>
+                <td th:text="${lostList.get_date}"></td>
+                <td th:text="${lostList.state}"></td>
+                <td><img src="Img/delete1.png"  th:onclick="|del_lost(${lostList.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png"  th:onclick="|alter_lost(${lostList.id})|"/></td>
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="lostPage(1)" th:disabled="${session.pagenolost==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|lostPage(${session.pagenolost+1})|" th:disabled="${session.pagenolost==session.lostCount}"/>
+            <input type="button" value="上一页" class="btn" th:onclick="|lostPage(${session.pagenolost-1})|" th:disabled="${session.pagenolost==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|lostPage(${session.lostCount})|" th:disabled="${session.pagenolost==session.lostCount}"/>
+            <button id="add_user"><a href="static/lost/addLost.html" id="addVipUser_btn">添加登记信息</a></button>
+        </div>
+    </div>
+</body>
+</html>

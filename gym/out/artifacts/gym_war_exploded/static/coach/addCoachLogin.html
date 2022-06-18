@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加教练登录账号</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <p>&nbsp</p>
+        <form action="addCoachLogin" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width: 800px;height: 100px">
+            <tr >
+                <th colspan="2">添加教练登录账号</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>编辑信息</th>
+            </tr>
+            <tr>
+                <th>登录名称</th>
+                <td><input type="text" class="edit_input" name="login_name" value="张三"></td>
+            </tr>
+            <tr>
+                <th>密码</th>
+                <td><input type="text" class="edit_input" name="password" value="123456"></td>
+            </tr>
+            <tr >
+                <th>状态</th>
+                <td><input type="text" class="edit_input" name="state" value="正常"></td>
+            </tr>
+        </table>
+            <p align="center"><input type="submit" value="添加" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="getCoachLogin" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

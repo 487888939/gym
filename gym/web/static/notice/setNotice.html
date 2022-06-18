@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改通知信息</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+<div>
+    <form action="doSetNotice" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" width="1000px">
+            <tr>
+                <th colspan="3">修改通知信息</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th th:width="300px">初始信息</th>
+                <th>编辑修改信息</th>
+            </tr>
+            <tr>
+                <th th:height="30px">公告编号</th>
+                <td th:text="${session.noticeSet.id}"></td>
+                <td th:text="${session.noticeSet.id}"></td>
+            </tr>
+            <tr >
+                <th>公告发布人</th>
+                <td th:text="${session.noticeSet.release_name}"></td>
+                <td><input type="text" class="edit_input" name="release_name" th:value="${session.noticeSet.release_name}"></td>
+            </tr>
+            <tr>
+                <th>发布日期</th>
+                <td th:text="${session.noticeSet.release_date}"></td>
+                <td><input type="text" class="edit_input"name="release_date" th:value="*{session.noticeSet.release_date}"></td>
+            </tr>
+            <tr>
+                <th>上次修改时间</th>
+                <td th:text="${session.noticeSet.change_date}"></td>
+                <td><input type="text" class="edit_input" name="change_date" th:value="*{session.noticeSet.change_date}"></td>
+            </tr>
+            <tr>
+                <th>公告类型</th>
+                <td th:text="${session.noticeSet.type}"></td>
+                <td><input type="text" class="edit_input" name="type" th:value="${session.noticeSet.type}"></td>
+            </tr>
+            <tr >
+                <th th:height="200px">公告内容</th>
+                <td th:text="${session.noticeSet.release_content}"></td>
+                <td><textarea placeholder="请输入公告内容" name="content" style="background-color: transparent"></textarea></td>
+            </tr>
+        </table>
+        <input type="hidden" name="id" th:value="${session.noticeSet.id}">
+        <p align="center"><input type="submit" value="修改" style="background-color: transparent; font-size:20px">
+            <button style="background-color: transparent;">
+                <a href="getNoticeList" target="work_window" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+            </button>
+        </p>
+    </form>
+</div>
+</body>
+</html>

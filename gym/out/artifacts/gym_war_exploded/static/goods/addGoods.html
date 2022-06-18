@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加健身器材</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+    <div>
+        <p>&nbsp</p>
+        <form action="doUpdGoods" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width: 800px;">
+            <tr >
+                <th colspan="2">添加健身器材</th>
+            </tr>
+            <tr>
+                <th>字段信息</th>
+                <th>编辑信息</th>
+            </tr>
+            <tr>
+                <th>商品名称</th>
+                <td><input type="text" class="edit_input" name="g_name" value="瑜伽垫"></td>
+            </tr>
+            <tr>
+                <th>商品价格</th>
+                <td><input type="text" class="edit_input" name="g_price" value=""></td>
+            </tr>
+            <tr >
+                <th>商品数量</th>
+                <td><input type="text" class="edit_input" name="g_account" value=""></td>
+            </tr>
+            <tr >
+                <th>商品品牌</th>
+                <td><input type="text" class="edit_input" name="g_brand" value=""></td>
+            </tr>
+        </table>
+            <input type="hidden" name="doUpdType" value="add">
+            <p align="center"><input type="submit" value="添加" style="background-color: transparent; font-size:20px">
+                <button style="background-color: transparent;">
+                    <a href="goodsList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+                </button>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>健身房主页</title>
+    <base href="http://localhost:8080/gym06/">
+    <script type="text/javascript" src="js/jquery_1.7/jquery-1.7.2.js"></script>
+    <link rel="stylesheet" href="css/GymHome.css">
+    <script type="text/javascript" src="js/GymHome.js">
+    </script>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">
+        <table class="table1" width="1200" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <img src="Img/logo.png" width="50" height="50">
+                </td>
+                <td width="150"><span>健身房管理系统1.0</span></td>
+                  </td>
+            </tr>
+            <tr id="window-title">
+                <td >&nbsp</td>
+                <td>&nbsp</td>
+                <td><button id="vip_tit">会员管理</button></td>
+                <td><button id="coach_tit">教练信息</button></td>
+                <td><button id="fitness_tit">健身课程</button></td>
+                <td><button id="kit_tit">健身器材</button></td>
+                <td><button id="goods_tit">门店商品</button></td>
+                <td><button id="lose_tit">失物招领</button></td>
+                <td><button id="statistic_tit">信息统计</button></td>
+            </tr>
+        </table>
+        <table border="2px" style="border: hidden">
+        <tr><td style="border: hidden">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp</td>
+        </tr>
+            <tr>
+                <th align="center" height="22px">功能列表</th>
+                <td rowspan="2" style="border: hidden">
+                    <iframe width="1037" height="550" align="right" name="work_window" href="static/iframeOne.html"></iframe>
+                </td>
+            </tr>
+        <tr>
+            <td id="list_tab">
+                <ul>
+                    <button><a href='vipList' target='work_window'>查看会员信息</a></button>
+                </ul>
+                <ul>
+                    <button><a href="cardholderList" target="work_window">持卡用户信息</a></button>
+                </ul>
+                <ul>
+                <button><a href="static/queryCustomer.html" target="work_window">会员卡充值</a></button>
+                </ul>
+                <ul>
+                    <button><a href="static/applyCard.html" target='work_window'>会员卡办理</a></button>
+                </ul>
+                <ul>
+                    <button><a href="setCard" target='work_window'>会员卡管理</a></button>
+                </ul>
+            </td>
+        </tr>
+        </table>
+    </div>
+    <div class="div3">
+        <table>
+            <tr>
+            <th id="welcome"><span>欢迎您:</span></th>
+            <th width="120px"><span th:text="${session.login_name}"></span></th>
+            <td width="70px" align="center"><a href="static/login.html"><img src="Img/exit.png" width="32" height="32" id="exit"></a></td>
+            </tr>
+        </table>
+        <table style="position: absolute;top: 16%;border-color: #cccccc;" border="2px" width="320px" cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2">公示栏</th>
+            </tr>
+            <tr>
+                <td height="380" colspan="2" th:text="${session.notice.getRelease_content()}"></td>
+            </tr>
+            <tr><td align="center">公告编号</td><td align="center" th:text="${session.notice.getId()}"></td></tr>
+            <tr><td align="center">公告发布人</td><td align="center" th:text="${session.notice.getRelease_name()}"></td></tr>
+            <tr><td align="center">发布日期</td><td align="center" th:text="${session.notice.getRelease_date()}"></td></tr>
+            <tr><td align="center">上次修改时间</td><td align="center" th:text="${session.notice.getChange_date()}"></td></tr>
+            <tr><td align="center">公告类型</td><td align="center" th:text="${session.notice.getType()}"></td></tr>
+            <tr>
+                <th height="30" align="center">
+                    <button style="width:152px;height:30px">
+                        <a href="updateNotice" target="work_window">修改公示内容</a>
+                    </button>
+                </th>
+                <th height="30" align="center">
+                    <button style="width:152px;height:30px">
+                        <a href="getNoticeList" target="work_window">
+                            查看公示列表
+                        </a>
+                    </button>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+</dr>
+<div style=";width: 350px;position: absolute;left: 40%;top: 93%" >
+    <span style="font-size: 15px;">
+        zhouhu .Copyright &copy;2022 | 健身房管理信息系统
+    </span>
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加公告</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/editvipList.css">
+</head>
+<body>
+<div>
+    <form action="addNotice" method="get">
+        <table id="edit_table" hcellpadding="0" cellspacing="0"  border="1px" align="center" style="width: 1000px;">
+            <tr style="height: 50px">
+                <th colspan="2">添加公告</th>
+            </tr>
+            <tr style="height: 50px">
+                <th>字段信息</th>
+                <th>编辑信息</th>
+            </tr>
+            <tr style="height: 50px">
+                <th>公告编号</th>
+                <td>为系统默值</td>
+            </tr>
+            <tr style="height: 50px">
+                <th>公告发布人</th>
+                <td><input type="text" class="edit_input" name="release_name" value="健身房"></td>
+            </tr>
+            <tr style="height: 50px">
+                <th>发布日期</th>
+                <td><input type="text" class="edit_input" name="release_date" value="2022-05-01"></td>
+            </tr>
+            <tr style="height: 50px">
+                <th>发布状态</th>
+                <td><input type="text" class="edit_input" name="state" value="未公示"></td>
+            </tr>
+            <tr style="height: 50px">
+                <th>公告类型</th>
+                <td><input type="text" class="edit_input" name="type" value="通知"></td>
+            </tr>
+            <tr>
+                <th>公告内容</th>
+                <td><input type="textarea"  placeholder="请输入公告内容" class="edit_input" name="release_content"></td>
+            </tr>
+        </table>
+        <p align="center"><input type="submit" value="添加" style="background-color: transparent; font-size:20px">
+            <button style="background-color: transparent;">
+                <a href="getNoticeList" style=" font-size:20px;text-decoration:none;color:#333;">取消</a>
+            </button>
+        </p>
+    </form>
+</div>
+</body>
+</html>

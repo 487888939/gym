@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>健身房会员注册页面</title>
+		<!--写base标签，永远固定相对路径跳转的结果-->
+		<base href="http://localhost:8080/gym06/"/>
+		<link type="text/css" rel="stylesheet" href="css/regist.css" >
+		<script type="text/javascript" src="js/jquery_1.7/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="js/regist.js"></script>
+	</head>
+	<body>
+			<div class="login_banner">
+				<div id="content">
+					<div class="login_form">
+						<div class="login_box">
+							<div class="tit">
+								<span style="color: #cccccc"><h1>注册健身房会员</h1></span>
+								<br />
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								<span class="errorMsg" style="color: crimson;font-size:20px"></span>
+								<br />
+							</div>
+							<div class="form">
+								<form action="registGym" method="post" onsubmit="return registTest(this)">
+									<label style="color: #cccccc">用户名称：</label>
+									<input class="itxt" type="text" placeholder="请输入用户名"
+										   autocomplete="off" tabindex="1" name="username" id="username" />
+									<br />
+									<br />
+									<label style="color: #cccccc">用户密码：</label>
+									<input class="itxt" type="password" placeholder="请输入密码"
+										   autocomplete="off" tabindex="1" name="password" id="password" />
+									<br />
+									<br />
+									<label style="color: #cccccc">确认密码：</label>
+									<input class="itxt" type="password" placeholder="确认密码"
+										   autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+									<br />
+									<br />
+									<label style="color: #cccccc">电子邮件：</label>
+									<input class="itxt" type="text" placeholder="请输入邮箱地址"
+										   autocomplete="off" tabindex="1" name="email" id="email" />
+									<br />
+									<br />
+									<label style="color: #cccccc">验证码：</label>&nbsp&nbsp&nbsp
+									<input class="itxt" type="text" name="code" style="width: 150px;" id="code" value=""/>
+									<img alt="" src="Img/code.bmp" style="float: right; margin-right: 40px">
+									<br />
+									<br />
+									<input type="submit" value="注册" id="sub_btn" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="bottom">
+			<span>
+				zhouhu.Copyright &copy;2022
+			</span>
+		</div>
+	</body>
+</html>

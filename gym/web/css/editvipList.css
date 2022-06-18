@@ -1,0 +1,21 @@
+.edit_input{
+    background-color:transparent;
+    border: 0;
+    outline: none;
+    align-content: center;
+}
+#edit_table{
+    align-content: center;
+}
+#submit{
+    width: 32px;
+    height:32px;
+    border:0;
+    background-image: url("../Img/search.png");
+    background-color: transparent;
+    position:absolute;
+    outline: none;
+}
+#keyword{
+    border-radius: 35px;height:30px;width: 200px;background-color: transparent;
+}

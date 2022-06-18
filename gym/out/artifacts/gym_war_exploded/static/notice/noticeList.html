@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>公告列表</title>
+    <base href="http://localhost:8080/gym/">
+    <link rel="stylesheet" href="css/notice.css">
+    <script type="text/javascript" src="js/notice.js"></script>
+</head>
+<body>
+<div >
+    &nbsp&nbsp&nbsp
+    <button id="add_user"><a href="static/notice/addNotice.html" id="addVipUser_btn">添加公告</a></button>
+    <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+        <tr>
+            <th colspan="10">
+                    <span>
+                        公告列表
+                    </span>
+            </th>
+        </tr>
+        <tr>
+            <th>公告编号</th>
+            <th>公告发布人</th>
+            <th>发布日期</th>
+            <th>发布状态</th>
+            <th>上次修改时间</th>
+            <th>公告类型</th>
+            <th width="200px">公告内容</th>
+            <th colspan="3">操作</th>
+        </tr>
+        <tr th:if="${#lists.isEmpty(session.noticeList)}">
+            <td colspan="10" style="text-align: center">暂时没有公告</td>
+        </tr>
+        <tr th:unless="${#lists.isEmpty(session.noticeList)}" th:each="noticeList:${session.noticeList}">
+            <td th:text="${noticeList.id}"></td>
+            <td th:text="${noticeList.release_name}"></td>
+            <td th:text="${noticeList.release_date}"></td>
+            <td th:text="${noticeList.state}"></td>
+            <td th:text="${noticeList.change_date}"></td>
+            <td th:text="${noticeList.type}"></td>
+            <td th:text="${noticeList.release_content}"></td>
+            <td><img src="Img/delete1.png"  th:onclick="|del_notice(${noticeList.id})|"/></td><!--|的作用是拼接字符串 -->
+            <td><img src="Img/modify.png"  th:onclick="|upd_notice(${noticeList.id})|"/></td>
+            <td><img src="Img/release.png"  th:onclick="|rel_notice(${noticeList.id})|"/></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

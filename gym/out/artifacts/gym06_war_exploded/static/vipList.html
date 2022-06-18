@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>会员信息管理</title>
+<base href="http://localhost:8080/gym06/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/vipList.js"></script>
+</head>
+<body>
+    <div>
+        <div class="search-query" style="">
+            <form th:action="@{vipList}" method="post">
+                <input type="hidden" name="oper" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" width="1000px" border="1" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <th colspan="9">
+                    <span>
+                        会员信息列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>序列号</th>
+            <th>会员名</th>
+            <th>密码</th>
+            <th>邮箱</th>
+            <th>注册日期</th>
+            <th>办卡类型</th>
+            <th>登录权限</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.viplist)}" th:height="50px">
+                <td colspan="8" style="text-align: center">会员用户不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.viplist)}" th:each="User:${session.viplist}" th:height="40px">
+                <td th:text="${User.id}"></td>
+                <td th:text="${User.username}"></td>
+                <td th:text="${User.password}"></td>
+                <td th:text="${User.email}"></td>
+                <td th:text="${User.reg_date}"></td>
+                <td th:text="${User.vip_type}"></td>
+                <td th:text="${User.login_limit}"></td>
+                <td><img src="Img/delete1.png" class="delImg" th:onclick="|delVip_user(${User.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png" class="delImg" th:onclick="|getEditVip_user(${User.id})|"/></td><!--|的作用是拼接字符串 -->
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="page(1)" th:disabled="${session.pageno==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|page(${session.pageno+1})|" th:disabled="${session.pageno==session.countPag}"/>
+            <input type="button" value="上一页" class="btn" th:onclick=" |page(${session.pageno-1})|" th:disabled="${session.pageno==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|page(${session.countPag})|" th:disabled="${session.pageno==session.countPag}"/>
+            <button id="add_user"><a href="static/addVipUser.html" id="addVipUser_btn">添加会员用户</a></button>
+        </div>
+    </div>
+</body>
+</html>

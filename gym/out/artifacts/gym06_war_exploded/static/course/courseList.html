@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head> <meta charset="UTF-8">
+    <title>课程列表</title>
+<base href="http://localhost:8080/gym06/">
+    <link rel="stylesheet" href="css/vipList.css">
+    <script type="text/javascript" src="js/course.js"></script>
+</head>
+<body>
+    <div >
+        <div class="search-query">
+            <form th:action="@{getCourseList}" method="post">
+                <input type="hidden" name="oper1" value="search">
+                <input type="text" placeholder="请输入查询关键字" name="keyword1" id="keyword">
+                &nbsp&nbsp
+                    <input type="submit" value="&nbsp" id="submit"/>
+            </form>
+        </div>
+        <dr/>
+        <table class="table1" border="1" cellpadding="0" cellspacing="0" align="center" th:width="1000px">
+            <tr>
+                <th colspan="9">
+                    <span>
+                        课程列表
+                    </span>
+                </th>
+            </tr>
+        <tr>
+            <th>编号</th>
+            <th>课程名称</th>
+            <th>课程价格</th>
+            <th>授课老师</th>
+            <th>授课时间</th>
+            <th>授课地点</th>
+            <th>课程状态</th>
+            <th colspan="2">操作</th>
+        </tr>
+            <tr th:if="${#lists.isEmpty(session.courseList)}" th:height="50px">
+                <td colspan="9" style="text-align: center">课程不存在</td>
+            </tr>
+            <tr th:unless="${#lists.isEmpty(session.courseList)}" th:each="courseList:${session.courseList}" th:height="40px">
+                <td th:text="${courseList.id}"></td>
+                <td th:text="${courseList.course_name}"></td>
+                <td th:text="${courseList.course_price}"></td>
+                <td th:text="${courseList.taught}"></td>
+                <td th:text="${courseList.teach_time}"></td>
+                <td th:text="${courseList.teach_space}"></td>
+                <td th:text="${courseList.course_state}"></td>
+                <td><img src="Img/delete1.png"  th:onclick="|del_course(${courseList.id})|"/></td><!--|的作用是拼接字符串 -->
+                <td><img src="Img/modify.png"  th:onclick="|alter_course(${courseList.id})|"/></td>
+            </tr>
+        </table>
+        <p>&nbsp</p>
+        <div>
+            <input type="button" value="首页" class="btn_viplist" th:onclick="coursePage(1)" th:disabled="${session.pagenocourse==1}">
+           <input type="button" value="下一页" class="btn" th:onclick="|coursePage(${session.pagenocourse+1})|" th:disabled="${session.pagenocourse==session.courseCount}"/>
+            <input type="button" value="上一页" class="btn" th:onclick="|coursePage(${session.pagenocourse-1})|" th:disabled="${session.pagenocourse==1}"/>
+            <input type="button" value="尾页" class="btn" th:onclick="|coursePage(${session.courseCount})|" th:disabled="${session.pagenocourse==session.courseCount}"/>
+            <button id="add_user"><a href="static/course/addCourse.html" id="addVipUser_btn">添加课程</a></button>
+        </div>
+    </div>
+</body>
+</html>
