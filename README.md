@@ -1,5 +1,5 @@
 
-> 项目gitHub源码地址：[https://github.com/liujianview/gymxmjpa](https://github.com/487888939/gym.git)
+> 项目gitHub源码地址：[https://github.com/487888939/gym.git](https://github.com/487888939/gym.git)
 >
 > 项目gitee源码地址：[https://gitee.com/zh98_41/gym.git](https://gitee.com/zh98_41/gym.git)
 >
