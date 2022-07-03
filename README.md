@@ -47,11 +47,11 @@
 
 ### 教练信息管理界面
 
-![image](https://img-blog.csdnimg.cn/img_convert/befa00e056959117974ec2eef8681c21.png)
+![image](https://github.com/487888939/gym/blob/master/img/coach.jpg)
 
 ### 器材信息管理界面
 
-![image](https://img-blog.csdnimg.cn/img_convert/f96c6344c6bfd7c1d2e76e39d1d33a6b.png)
+![image](h)
 
 ### 商品列表界面
 
