@@ -1,7 +1,7 @@
 
-> 项目gitHub源码地址：[https://github.com/liujianview/gymxmjpa](https://github.com/liujianview/gymxmjpa)
+> 项目gitHub源码地址：[https://github.com/liujianview/gymxmjpa](https://github.com/487888939/gym.git)
 >
-> 项目gitee源码地址：[https://gitee.com/liuchuanfengview/gymxmjpa](https://gitee.com/liuchuanfengview/gymxmjpa)
+> 项目gitee源码地址：[https://gitee.com/zh98_41/gym.git](https://gitee.com/zh98_41/gym.git)
 >
 ## 一.前言
 
@@ -39,25 +39,21 @@
 
 ### 登录界面
 
-![image-20210125204622368](https://img-blog.csdnimg.cn/img_convert/da5d76a1ede727f01502886b56ddfb38.png)
-
-### 数据统计界面
-
-![image-20210125204723157](https://img-blog.csdnimg.cn/img_convert/372a2ba7ebce12d48cce9088eeb054a4.png)
+![image](https://img-blog.csdnimg.cn/img_convert/da5d76a1ede727f01502886b56ddfb38.png)
 
 ### 会员列表界面
 
-![image-20210125204804256](https://img-blog.csdnimg.cn/img_convert/9d7f61a0d92d5687fc7c27f2a9370cc1.png)
+![image](https://img-blog.csdnimg.cn/img_convert/9d7f61a0d92d5687fc7c27f2a9370cc1.png)
 
-### 会员私教课程界面
+### 教练信息管理界面
 
-![image-20210125204905369](https://img-blog.csdnimg.cn/img_convert/befa00e056959117974ec2eef8681c21.png)
+![image](https://img-blog.csdnimg.cn/img_convert/befa00e056959117974ec2eef8681c21.png)
 
-### 物品遗失归还界面
+### 器材信息管理界面
 
-![image-20210125205005148](https://img-blog.csdnimg.cn/img_convert/f96c6344c6bfd7c1d2e76e39d1d33a6b.png)
+![image](https://img-blog.csdnimg.cn/img_convert/f96c6344c6bfd7c1d2e76e39d1d33a6b.png)
 
 ### 商品列表界面
 
-![image-20210125205100971](https://img-blog.csdnimg.cn/img_convert/bf7a74da109829fe505356369a1550fe.png)
+![image](https://img-blog.csdnimg.cn/img_convert/bf7a74da109829fe505356369a1550fe.png)
 
