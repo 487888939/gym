@@ -43,7 +43,7 @@
 
 ### 会员列表界面
 
-![image](https://img-blog.csdnimg.cn/img_convert/9d7f61a0d92d5687fc7c27f2a9370cc1.png)
+![image](https://github.com/487888939/gym/blob/master/img/user.jpg)
 
 ### 教练信息管理界面
 
