@@ -13,7 +13,7 @@
 
 #### 系统层次结构图如下：
 
-![image-20210125203309103](https://github.com/487888939/gym/blob/master/img/structure.jpg)
+![image](https://github.com/487888939/gym/blob/master/img/structure.jpg)
 
 #### 主要功能如下：
 
@@ -32,7 +32,7 @@
 ### 3.本项目所用环境：
 
 1. 开发工具：IDEA
-2. 编程语言：JDK1.8,HTML,CSS,JS，jQuery
+2. 编程语言：JDK1.8,HTML,CSS,Thymeleaf，jQuery
 3. 数据库：mysql5.6
 
 ## 三.系统主要页面展示
