@@ -51,7 +51,7 @@
 
 ### 器材信息管理界面
 
-![image](h)
+![image](https://github.com/487888939/gym/blob/master/img/2.jpg)
 
 ### 商品列表界面
 
