@@ -39,7 +39,7 @@
 
 ### 登录界面
 
-![image](https://img-blog.csdnimg.cn/img_convert/da5d76a1ede727f01502886b56ddfb38.png)
+![image](https://github.com/487888939/gym/blob/master/img/login.png)
 
 ### 会员列表界面
 
