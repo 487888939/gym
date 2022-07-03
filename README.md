@@ -55,5 +55,5 @@
 
 ### 商品列表界面
 
-![image](https://img-blog.csdnimg.cn/img_convert/bf7a74da109829fe505356369a1550fe.png)
+![image](https://github.com/487888939/gym/blob/master/img/goods.jpg)
 
