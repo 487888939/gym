@@ -13,7 +13,7 @@
 
 #### 系统层次结构图如下：
 
-![image-20210125203309103](https://img-blog.csdnimg.cn/img_convert/990c3343746b222872d041334d8d1cb9.png)
+![image-20210125203309103](https://github.com/487888939/gym/blob/master/img/structure.jpg)
 
 #### 主要功能如下：
 
